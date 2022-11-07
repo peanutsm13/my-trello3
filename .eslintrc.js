@@ -1,20 +1,22 @@
 module.exports = {
-  root: true,
-  env: {
-    node: true
+  "env": {
+      "browser": true,
+      "es2021": true
   },
-  'extends': [
-    'plugin:vue/essential',
-    'eslint:recommended'
+  "extends": [
+      "eslint:recommended",
+      "plugin:vue/essential",
+      "plugin:prettier/recommended", // 追加
   ],
-  parserOptions: {
-    parser: '@babel/eslint-parser'
+  "parserOptions": {
+      "ecmaVersion": 12,
+      "sourceType": "module"
   },
-  rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'vue/multi-word-component-names': 'off'
-
-    
+  "plugins": [
+      "vue",
+      "prettier", // 追加
+  ],
+  "rules": {
+      "prettier/prettier": "error", // 追加
   }
-}
+};
