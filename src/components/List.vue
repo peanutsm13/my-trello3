@@ -6,11 +6,14 @@
             </p>
             <div class="deletelist" @click="removelist">X</div>
         </div>
+        <card-add :listIndex="listIndex" />
     </div>
 </template>
 
 <script>
+import CardAdd from "./CardAdd.vue";
 export default {
+    components: { CardAdd },
     //親コンポーネント(ListAdd?)から受け取るデータを定義
     props: {
         title: {

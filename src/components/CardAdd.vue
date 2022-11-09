@@ -1,18 +1,14 @@
 <template>
-    <form :class="classList" @submit.prevent="addList">
+    <form :class="classList" @submit.prevent="addCardToList">
         <input
             v-model="title"
             type="text"
             class="text-input"
-            placeholder="Add new list"
+            placeholder="Add new card"
             @focusin="startEditing"
             @focusout="finishEditing"
         />
-        <button
-            type="submit"
-            class="add-button"
-            v-if="isEditing || titleExsists"
-        >
+        <button type="submit" class="add-button" v-if="isEditing || bodyExists">
             Add
         </button>
     </form>
@@ -20,37 +16,46 @@
 
 <script>
 export default {
+    props: {
+        listIndex: {
+            type: Number,
+            required: true,
+        },
+    },
     data: function () {
         return {
-            title: "",
+            body: "",
             isEditing: false,
         };
     },
     computed: {
         classList() {
-            const classList = ["addlist"];
+            const classList = ["addcard"];
             if (this.isEditing) {
                 classList.push("active");
             }
-            if (this.titleExsists) {
+            if (this.bodyExists) {
                 classList.push("addable");
             }
             return classList;
         },
-        titleExsists() {
-            return this.title.length > 0;
+        bodyExists() {
+            return this.body.length > 0;
         },
     },
     methods: {
-        addList: function () {
-            this.$store.dispatch("addlist", { title: this.title });
-            this.title = "";
-        },
         startEditing: function () {
             this.isEditing = true;
         },
         finishEditing: function () {
             this.isEditing = false;
+        },
+        addCardToList: function () {
+            this.$store.dispatch("addCardToList", {
+                body: this.body,
+                listIndex: this.listIndex,
+            });
+            this.body = "";
         },
     },
 };
