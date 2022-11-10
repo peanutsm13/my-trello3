@@ -1,7 +1,7 @@
 <template>
     <form :class="classList" @submit.prevent="addCardToList">
         <input
-            v-model="title"
+            v-model="body"
             type="text"
             class="text-input"
             placeholder="Add new card"
