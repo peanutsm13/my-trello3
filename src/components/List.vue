@@ -5,6 +5,13 @@
                 {{ title }}
             </p>
             <div class="deletelist" @click="removelist">X</div>
+            <card
+                v-for="(item, index) in cards"
+                :body="item.body"
+                :key="item.id"
+                :cardIndex="index"
+                :listindex="listindex"
+            />
         </div>
         <card-add :listIndex="listIndex" />
     </div>
@@ -12,8 +19,9 @@
 
 <script>
 import CardAdd from "./CardAdd.vue";
+import Card from "./Card.vue";
 export default {
-    components: { CardAdd },
+    components: { CardAdd, Card },
     //親コンポーネント(ListAdd?)から受け取るデータを定義
     props: {
         title: {
