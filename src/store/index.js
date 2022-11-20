@@ -33,6 +33,9 @@ const store = new Vuex.Store({
             state.lists.splice(payload.listIndex, 1);
         },
         addCardToList(state, payload) {
+            console.log(payload);
+            console.log(state.lists);
+            console.log(state.lists[payload.listIndex]);
             state.lists[payload.listIndex].push({ body: payload.body });
         },
         removeCardFromList(state, payload) {
