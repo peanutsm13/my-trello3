@@ -80,7 +80,7 @@ main {
     cursor: pointer;
 }
 .active .text-input {
-    background-color: white;
+    background-color: pink;
 }
 .addable .add-button {
     background-color: #00d78f;
