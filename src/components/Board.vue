@@ -2,7 +2,7 @@
     <div>
         <header>my Trello</header>
         <main>
-            <p class="info-line">All: 0 tasks</p>
+            <p class="info-line">All: {{ totalCardCount }} tasks</p>
             <div class="list-index">
                 <!-- リストから値を展開し現在の値：itemとそのindexを受け取ることができる -->
                 <!-- itemから更にリストで定義されたオブジェクトのキーで値にアクセスできる -->
@@ -33,6 +33,9 @@ export default {
     computed: {
         //mapState:stateで定義されたデータの名前と同じ名前の文字列でstateを呼び出すことができる
         ...mapState(["lists"]),
+        totalCardCount() {
+            return this.$store.getters.totalCardCount;
+        },
     },
 };
 </script>

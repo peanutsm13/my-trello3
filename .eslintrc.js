@@ -6,7 +6,7 @@ module.exports = {
     extends: [
         "eslint:recommended",
         "plugin:vue/essential",
-        "plugin:prettier/recommended", // 追加
+        // "plugin:prettier/recommended", // 追加
     ],
     parserOptions: {
         ecmaVersion: 12,
@@ -14,10 +14,10 @@ module.exports = {
     },
     plugins: [
         "vue",
-        "prettier", // 追加
+        // "prettier", // 追加
     ],
     rules: {
-        "prettier/prettier": "error", // 追加
+        // "prettier/prettier": "error", // 追加
         "vue/multi-word-component-names": "off",
     },
 };
